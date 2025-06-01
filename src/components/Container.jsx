@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-function Container({children}) {
+function Container({ children }) {
   return (
-    <div className='bg-neutral-900 w-full h-screen flex justify-center items-center'>
-      <div className="w-full max-w-md bg-neutral-800 rounded-md py-6 mx-0.5">
+    <div className="w-full h-screen flex justify-center items-center bg-neutral-100 dark:bg-neutral-900">
+      <div className="w-full max-w-md bg-white dark:bg-neutral-800 rounded-md py-6 px-4 shadow-md mx-4">
         {children}
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default Container
+export default Container;

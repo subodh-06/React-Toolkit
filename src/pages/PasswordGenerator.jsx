@@ -3,6 +3,8 @@ import Container from '../components/Container';
 import InputText from '../components/InputText';
 import Button from '../components/Button';
 import { Helmet } from 'react-helmet-async';
+import Heading from '../components/Heading';
+import Label from '../components/Label';
 function PasswordGenerator() {
   const [length, setLength] = useState(6);
   const[numAllowed,setNumAllowed]=useState(false);
@@ -56,7 +58,8 @@ useEffect(()=>{
 </Helmet>
 
  <Container>
-  <h1 className='text-4xl text-center font-semibold mt-4 text-gray-50'>Password Generator</h1>
+  <Heading>Password Generator</Heading>
+  
   <div className="flex shadow rounded-lg mb-4 mt-4  gap-1 mx-1">
    <InputText
    ype="text" 
@@ -67,31 +70,42 @@ useEffect(()=>{
    />
     <Button variant='defult' onClick={copyToClipboard}>{copySuccess? "copied!":"copy"}</Button>
   </div>
-  <div className='py-4 '>
-    <div className='flex gap-3 flex-col md:flex-row w-full  mx-auto'>
-      <div className='flex justify-center items-center gap-2 '>
-        <input type="range" min={6} max={20} value={length} className='cursor-pointer' name='range' 
-        onChange={function(e){
-          setLength(parseInt(e.target.value));
-        }} />
-        <label htmlFor="range" className='text-gray-50'>Length: {length}</label>
-      </div>
-      <div className='flex justify-center items-center gap-1'>
-        <input type="checkbox" defaultChecked={numAllowed}  className='cursor-pointer' name='number' 
-        onChange={function(e){ 
-          setNumAllowed((prev)=>!prev);
-        }} />
-        <label htmlFor="number" className='text-gray-50'>Numbers</label>
-      </div>
-      <div className='flex justify-center items-center gap-1'>
-        <input type="checkbox" defaultChecked={specialCharAllowed}  className='cursor-pointer' name='' 
-        onChange={function(e){ 
-          setSpecialCharAllowed((prev)=>!prev);
-        }} />
-        <label htmlFor="range" className='text-gray-50'>Characters</label>
-      </div>
+  <div className='py-4'>
+  <div className='flex gap-3 flex-row w-full mx-auto'>
+    <div className='flex justify-center items-center gap-2'>
+      <input 
+        type="range" 
+        min={6} max={20} 
+        value={length} 
+        className='cursor-pointer mb-1.5' 
+        name='range' 
+        onChange={(e) => setLength(parseInt(e.target.value))} 
+      />
+      <Label htmlFor="range">Length: {length}</Label>
+    </div>
+    <div className='flex justify-center items-center gap-1'>
+      <input 
+        type="checkbox" 
+        defaultChecked={numAllowed}  
+        className='cursor-pointer mb-1.5' 
+        name='number' 
+        onChange={() => setNumAllowed(prev => !prev)} 
+      />
+      <Label htmlFor="number">Numbers</Label>
+    </div>
+    <div className='flex justify-center items-center gap-1'>
+      <input 
+        type="checkbox" 
+        defaultChecked={specialCharAllowed}  
+        className='cursor-pointer mb-1.5' 
+        name='characters' 
+        onChange={() => setSpecialCharAllowed(prev => !prev)} 
+      />
+      <Label htmlFor="characters">Characters</Label>
     </div>
   </div>
+</div>
+
 
 
     </Container>

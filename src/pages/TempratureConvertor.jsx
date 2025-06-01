@@ -3,7 +3,8 @@ import InputText from '../components/InputText';
 import Container from '../components/Container';
 import { Helmet } from 'react-helmet-async';
 import { useEffect } from 'react';
-
+import Heading from '../components/Heading';
+import Label from '../components/Label';
 
 function TempratureConvertor() {
   const [celsius, setCelsius] = useState("")
@@ -43,11 +44,11 @@ function TempratureConvertor() {
  </Helmet>
 
     <Container>
-       <h1 className='text-zinc-50 text-3xl font-semibold text-center hover:text-zinc-100'>🌡️ Temperature Converter</h1>
+      <Heading>🌡️ Temperature Converter</Heading>
          <div>
           <form onSubmit={(e)=>e.preventDefault()}>
              <div className='flex flex-col mx-11 mt-6'>
-              <label htmlFor={celsiusId} className='text-zinc-100 font-semibold'>Celsius (°C)</label>
+              <Label htmlFor={celsiusId}>Celsius (°C)</Label>
              <InputText
              id={celsiusId}
              type='number'
@@ -57,7 +58,7 @@ function TempratureConvertor() {
              />
              </div>
              <div className='flex flex-col mx-11 mt-4 gap-1'>
-              <label htmlFor={fahrenheitId} className='text-zinc-100 font-semibold'>Fahrenheit (°F)</label>
+              <Label htmlFor={fahrenheitId}>Fahrenheit (°F)</Label>
              <InputText type="number" id={fahrenheitId} placeholder='Enter Fahrenheit'
              value={fahrenheit}
              onChange={fahrenheitCalculate}

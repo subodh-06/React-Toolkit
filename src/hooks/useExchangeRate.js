@@ -12,7 +12,7 @@ function useExchangeRate(fromCurrency, toCurrency) {
 
         try {
             const res = await fetch(
-                `${import.meta.env.VITE_SOME_KEY}`
+                `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromCurrency.toLowerCase()}.json`
             );
             const data = await res.json();
             const rate = data[fromCurrency.toLowerCase()][toCurrency.toLowerCase()];
