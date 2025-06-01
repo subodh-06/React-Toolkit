@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-800 dark:bg-neutral-800 text-neutral-300 py-10">
+    <footer className="bg-neutral-900 text-neutral-400 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
 
         {/* About / Logo */}
         <div>
           <h2 className="text-xl font-bold text-white">React-Toolkit</h2>
-          <p className="mt-2 text-sm text-neutral-400">
+          <p className="mt-2 text-sm text-neutral-500">
             A growing collection of developer-friendly productivity and finance tools — all in one place.
           </p>
         </div>
@@ -32,14 +32,13 @@ export default function Footer() {
             <li><Link to="/tools/sip-calculator" className="hover:text-white">SIP Calculator</Link></li>
             <li><Link to="/tools/step-up-sip" className="hover:text-white">Step-up SIP</Link></li>
             <li><Link to="/tools/swp-calculator" className="hover:text-white">SWP Calculator</Link></li>
-  
           </ul>
         </div>
       </div>
 
       {/* Bottom line */}
       <div className="mt-10 border-t border-neutral-800 pt-6 text-center text-sm text-neutral-500">
-        © {new Date().getFullYear()} Rect-Toolkit. Made with ❤️ by <u className='text-neutral-300'> <Link to={"https://github.com/subodh-06"}>Subodh</Link></u>.
+        © {new Date().getFullYear()} React-Toolkit. Made with ❤️ by <u className='text-neutral-300'><Link to="https://github.com/subodh-06">Subodh</Link></u>.
       </div>
     </footer>
   );

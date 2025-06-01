@@ -1,37 +1,38 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 function cn(...classes) {
   return classes.filter(Boolean).join(" ")
 }
 
 function Label({
-      htmlFor,
+  htmlFor,
   children,
   className,
   required = false,
   description = "",
   ...props
-
 }) {
-     const [isFocused, setIsFocused] = useState(false);
-     useEffect(()=>{
-        const el = document.getElementById(htmlFor)
-        if(!el) return
+  const [isFocused, setIsFocused] = useState(false)
+  const inputRef = useRef(null)
 
-        const handleFocus =()=> setIsFocused(true);
-        const handleBlur =()=>setIsFocused(false);
+  useEffect(() => {
+    const el = document.getElementById(htmlFor)
+    if (!el) return
 
-         el.addEventListener("focus", handleFocus);
-         el.addEventListener("blur", handleBlur);
+    const handleFocus = () => setIsFocused(true)
+    const handleBlur = () => setIsFocused(false)
 
-         return () => {
+    el.addEventListener("focus", handleFocus)
+    el.addEventListener("blur", handleBlur)
+
+    return () => {
       el.removeEventListener("focus", handleFocus)
       el.removeEventListener("blur", handleBlur)
     }
+  }, [htmlFor])
 
-     },[htmlFor])
   return (
-   <div className="mb-1">
+    <div className="mb-1">
       <label
         htmlFor={htmlFor}
         className={cn(
